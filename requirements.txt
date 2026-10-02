@@ -1,0 +1,6 @@
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+pillow>=9.0      # export GIF
+numba>=0.58      # optionnel : accélère x50-100 les simulations (repli numpy sinon)
+pytest>=7.0
