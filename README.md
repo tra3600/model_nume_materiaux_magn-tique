@@ -10,7 +10,8 @@ pip install -r requirements.txt        # numba est optionnel mais accélère ×5
 python -m pytest -q                    # 33 tests
 python -m magnetisme figures           # régénère toutes les figures (quelques minutes)
 python -m magnetisme figures --rapide  # version réduite (~15 s)
-python -m magnetisme interactif        # simulateur à curseurs (T, B), Metropolis/Wolff
+python -m magnetisme interactif        # simulateur à curseurs (T, B), Metropolis/Wolff, ferro/antiferro
+python -m magnetisme demo              # régénère le GIF de démonstration du simulateur
 python -m magnetisme simuler -L 64 -T 2.0 --algo wolff --image conf.png
 python -m magnetisme balayage -L 32 --tmin 1.5 --tmax 3.5 > data.csv
 python -m magnetisme domaines -T 2.269 --image weiss.png
@@ -18,6 +19,12 @@ python -m magnetisme champ-moyen 0.3 0.9 # résout m = tanh(m/t)
 python -m magnetisme sql                 # requêtes 6 à 9 du sujet
 python -m magnetisme examen              # corrigé Python pur (sans numpy) du sujet
 ```
+
+## Simulateur interactif
+Curseurs T, B et vitesse, choix Metropolis/Wolff, réinitialisation (aléatoire, ordonné, Néel) et bouton
+ferro ⇄ antiferro. Démonstration scriptée (paramagnétisme, trempe, Tc, champ, hystérésis, Néel) :
+
+![](figures/15_demo_simulateur.gif)
 
 ## Organisation
 
