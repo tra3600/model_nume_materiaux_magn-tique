@@ -43,6 +43,9 @@ def main(argv=None):
     s.add_argument("t", type=float, nargs="+")
     sub.add_parser("examen", help="exécute le corrigé Python pur du sujet Mines 2022")
     sub.add_parser("interactif", help="simulateur interactif (curseurs T, B)")
+    s = sub.add_parser("demo", help="GIF de démonstration du simulateur (sans écran)")
+    s.add_argument("--sortie", default="figures/15_demo_simulateur.gif")
+    s.add_argument("-L", type=int, default=64)
     a = p.parse_args(argv)
 
     if a.cmd == "figures":
@@ -104,6 +107,10 @@ def main(argv=None):
         from . import examen_mines_2022
         import runpy
         runpy.run_module("magnetisme.examen_mines_2022", run_name="__main__")
+    elif a.cmd == "demo":
+        import matplotlib; matplotlib.use("Agg")
+        from .interactif import demo_gif
+        print("GIF :", demo_gif(a.sortie, L=a.L))
     elif a.cmd == "interactif":
         from .interactif import lancer
         lancer()
